@@ -36,6 +36,7 @@ const skillCategories = [
       'Postman',
       'VS Code',
       'Vercel',
+      'Netlify',
       'Render',
     ],
   },

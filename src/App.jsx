@@ -27,6 +27,7 @@ import MLDatasetCollector from './components/Projects/MLDatasetCollector'
 
 import './App.css'
 import Certifications from './components/Certifications'
+import Achievements from './components/Achievements'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -273,9 +274,9 @@ function PortfolioHome() {
         <Experience />
         <Education />
         <Skills />
-        
         <Projects />
         <Certifications />
+        <Achievements />
         <Languages />
         <Interests />
         <Contact />
