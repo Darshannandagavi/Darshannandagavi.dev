@@ -1,0 +1,1 @@
+import ProjectDetail from './ProjectDetail'; import { fridayChromeExtension as project } from './projectData'; export default function FridayChromeExtension(){return <ProjectDetail project={project}/>}

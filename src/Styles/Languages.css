@@ -1,0 +1,285 @@
+.portfolio-languages-section {
+  position: relative;
+  padding: 90px 40px;
+  border-top: 1px solid #222222;
+  overflow: hidden;
+}
+
+.portfolio-languages-decoration {
+  position: absolute;
+  bottom: 8%;
+  left: 4%;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(16, 163, 127, 0.07),
+    rgba(16, 163, 127, 0.02) 38%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.portfolio-languages-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.portfolio-languages-header {
+  max-width: 650px;
+  margin-bottom: 42px;
+}
+
+.portfolio-languages-header .section-label {
+  margin: 0 0 8px;
+  color: #10a37f;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.portfolio-languages-header .section-title-text {
+  margin: 0;
+  color: #e8e8e8;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.portfolio-languages-introduction {
+  margin: 14px 0 0;
+  color: #818181;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.portfolio-languages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.portfolio-language-card {
+  position: relative;
+  min-width: 0;
+  min-height: 255px;
+  padding: 23px;
+  border: 1px solid #333333;
+  border-radius: 17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(32, 32, 32, 0.96),
+      rgba(26, 26, 26, 0.96)
+    );
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.portfolio-language-card::before {
+  content: "";
+  position: absolute;
+  top: -75px;
+  right: -75px;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  background: rgba(16, 163, 127, 0.045);
+  pointer-events: none;
+  transition:
+    background-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.portfolio-language-card:hover {
+  border-color: rgba(16, 163, 127, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.portfolio-language-card:hover::before {
+  background: rgba(16, 163, 127, 0.09);
+  transform: scale(1.25);
+}
+
+.portfolio-language-card-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.portfolio-language-symbol {
+  width: 47px;
+  height: 47px;
+  border: 1px solid rgba(16, 163, 127, 0.2);
+  border-radius: 13px;
+  background: rgba(16, 163, 127, 0.1);
+  color: #10a37f;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.portfolio-language-card:hover .portfolio-language-symbol {
+  background: #10a37f;
+  color: #ffffff;
+  transform: rotate(-4deg);
+}
+
+.portfolio-language-heading {
+  min-width: 0;
+}
+
+.portfolio-language-heading h3 {
+  margin: 0 0 3px;
+  color: #e8e8e8;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.portfolio-language-heading p {
+  margin: 0;
+  color: #737373;
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.portfolio-language-message-icon {
+  margin-left: auto;
+  color: #545454;
+  flex-shrink: 0;
+}
+
+.portfolio-language-description {
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 23px;
+  color: #929292;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.portfolio-language-proficiency {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.portfolio-language-proficiency-label {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portfolio-language-proficiency-label span {
+  color: #6f6f6f;
+  font-size: 0.67rem;
+}
+
+.portfolio-language-proficiency-label strong {
+  color: #10a37f;
+  font-size: 0.69rem;
+  font-weight: 600;
+}
+
+.portfolio-language-progress-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: #2c2c2c;
+  overflow: hidden;
+}
+
+.portfolio-language-progress-value {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #0d8c6d,
+    #10a37f
+  );
+  display: block;
+  box-shadow: 0 0 12px rgba(16, 163, 127, 0.35);
+  transform-origin: left;
+}
+
+.portfolio-language-progress-value::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.25);
+  filter: blur(3px);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .portfolio-languages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-language-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-languages-section {
+    padding: 60px 20px;
+  }
+
+  .portfolio-languages-header .section-title-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .portfolio-languages-header {
+    margin-bottom: 32px;
+  }
+
+  .portfolio-languages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-language-card:last-child {
+    grid-column: auto;
+  }
+
+  .portfolio-language-card {
+    min-height: 235px;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-language-card,
+  .portfolio-language-card::before,
+  .portfolio-language-symbol {
+    transition: none;
+  }
+}
