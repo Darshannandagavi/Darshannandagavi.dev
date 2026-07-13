@@ -495,3 +495,81 @@
     grid-template-columns: 1fr;
   }
 }
+
+.portfolio-sidebar-navigation-button {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  padding:
+    clamp(5px, 0.85vh, 8px)
+    11px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #858585;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  font-family: inherit;
+  font-size: clamp(0.68rem, 1.3vh, 0.76rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio-sidebar-navigation-icon {
+  flex: 0 0 auto;
+  color: #555555;
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio-sidebar-navigation-button > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portfolio-sidebar-navigation-button:hover {
+  border-color: rgba(16, 163, 127, 0.14);
+  background: rgba(16, 163, 127, 0.06);
+  color: #d8d8d8;
+  transform: translateX(3px);
+}
+
+.portfolio-sidebar-navigation-button:hover
+  .portfolio-sidebar-navigation-icon {
+  color: #10a37f;
+  transform: scale(1.08);
+}
+
+.portfolio-sidebar-navigation-button.is-active
+  .portfolio-sidebar-navigation-icon {
+  color: #10a37f;
+}
+
+.portfolio-sidebar-navigation-button:focus-visible {
+  outline: 2px solid #10a37f;
+  outline-offset: 1px;
+}
+@media (max-width: 900px) {
+  .portfolio-sidebar-navigation-button {
+    min-height: 39px;
+    padding: 9px 11px;
+    font-size: 0.75rem;
+  }
+}

@@ -28,6 +28,7 @@ import MLDatasetCollector from './components/Projects/MLDatasetCollector'
 import './App.css'
 import Certifications from './components/Certifications'
 import Achievements from './components/Achievements'
+import FridayPortfolioAssistant from './components/FridayPortfolioAssistant'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -287,6 +288,7 @@ function PortfolioHome() {
 
 export default function App() {
   return (
+    <>
     <Routes>
       <Route path="/" element={<PortfolioHome />} />
 
@@ -341,6 +343,9 @@ export default function App() {
       />
 
       <Route path="*" element={<Navigate to="/" replace />} />
+      
     </Routes>
+    <FridayPortfolioAssistant />
+    </>
   )
 }

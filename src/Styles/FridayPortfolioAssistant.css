@@ -1,0 +1,785 @@
+.friday-portfolio-assistant {
+  --friday-green: #10a37f;
+  --friday-dark: #151515;
+  --friday-card: #1d1d1d;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 900;
+  font-family: inherit;
+}
+
+/* Floating button */
+
+.friday-portfolio-floating-button {
+  position: relative;
+  min-width: 190px;
+  height: 62px;
+  padding: 8px 17px 8px 9px;
+  border: 1px solid #373737;
+  border-radius: 999px;
+  background: rgba(24, 24, 24, 0.96);
+  color: #e8e8e8;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.friday-portfolio-floating-button:hover {
+  border-color: rgba(16, 163, 127, 0.7);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(16, 163, 127, 0.12);
+  transform: translateY(-3px);
+}
+
+.friday-portfolio-floating-button:focus-visible {
+  outline: 2px solid var(--friday-green);
+  outline-offset: 4px;
+}
+
+.friday-portfolio-floating-glow {
+  position: absolute;
+  inset: -8px;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(16, 163, 127, 0.08);
+  opacity: 0;
+  filter: blur(14px);
+}
+
+.friday-portfolio-status-listening
+  .friday-portfolio-floating-glow,
+.friday-portfolio-status-speaking
+  .friday-portfolio-floating-glow {
+  opacity: 1;
+  animation: fridayPortfolioGlow 1.8s infinite;
+}
+
+.friday-portfolio-floating-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(16, 163, 127, 0.28);
+  border-radius: 50%;
+  background: rgba(16, 163, 127, 0.12);
+  color: var(--friday-green);
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.friday-portfolio-floating-icon > span {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.friday-portfolio-status-listening
+  .friday-portfolio-floating-icon {
+  animation: fridayPortfolioListening 1.5s infinite;
+}
+
+.friday-portfolio-status-speaking
+  .friday-portfolio-floating-icon {
+  background: var(--friday-green);
+  color: #ffffff;
+  animation: fridayPortfolioSpeaking 0.8s infinite alternate;
+}
+
+.friday-portfolio-floating-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+}
+
+.friday-portfolio-floating-copy strong {
+  color: #e8e8e8;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.friday-portfolio-floating-copy small {
+  color: #747474;
+  font-size: 0.62rem;
+}
+
+/* Panel */
+
+.friday-portfolio-panel {
+  position: absolute;
+  right: 0;
+  bottom: 76px;
+  width: min(370px, calc(100vw - 32px));
+  max-height: min(570px, calc(100vh - 120px));
+  border: 1px solid #343434;
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(16, 163, 127, 0.1),
+      transparent 34%
+    ),
+    rgba(23, 23, 23, 0.98);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 85px rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transform-origin: right bottom;
+  animation: fridayPortfolioPanelOpen 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.friday-portfolio-panel-header {
+  padding: 17px 18px;
+  border-bottom: 1px solid #303030;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friday-portfolio-panel-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.friday-portfolio-panel-identity > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.friday-portfolio-panel-identity strong {
+  color: #e8e8e8;
+  font-size: 0.82rem;
+}
+
+.friday-portfolio-panel-identity small {
+  color: #6f6f6f;
+  font-size: 0.63rem;
+}
+
+.friday-portfolio-mini-orb {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(16, 163, 127, 0.3);
+  border-radius: 50%;
+  background: rgba(16, 163, 127, 0.09);
+}
+
+.friday-portfolio-mini-orb span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--friday-green);
+  transform-origin: 0 0;
+}
+
+.friday-portfolio-mini-orb span:nth-child(1) {
+  transform: rotate(0deg) translateX(10px);
+}
+
+.friday-portfolio-mini-orb span:nth-child(2) {
+  transform: rotate(120deg) translateX(10px);
+}
+
+.friday-portfolio-mini-orb span:nth-child(3) {
+  transform: rotate(240deg) translateX(10px);
+}
+
+.friday-portfolio-status-listening
+  .friday-portfolio-mini-orb span,
+.friday-portfolio-status-speaking
+  .friday-portfolio-mini-orb span {
+  animation: fridayPortfolioOrbit 2s linear infinite;
+}
+
+.friday-portfolio-close-button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid #383838;
+  border-radius: 10px;
+  background: #202020;
+  color: #8b8b8b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.friday-portfolio-close-button:hover {
+  border-color: var(--friday-green);
+  color: var(--friday-green);
+}
+
+/* Status visualizer */
+
+.friday-portfolio-status-area {
+  padding: 22px 20px 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.friday-portfolio-status-area > strong {
+  margin-top: 13px;
+  color: #dedede;
+  font-size: 0.84rem;
+}
+
+.friday-portfolio-status-area > p {
+  margin: 4px 0 0;
+  color: #6f6f6f;
+  font-size: 0.66rem;
+}
+
+.friday-portfolio-voice-visualizer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.friday-portfolio-voice-visualizer span {
+  width: 3px;
+  height: 7px;
+  border-radius: 999px;
+  background: #444444;
+}
+
+.friday-portfolio-voice-visualizer.friday-portfolio-status-listening
+  span,
+.friday-portfolio-voice-visualizer.friday-portfolio-status-speaking
+  span,
+.friday-portfolio-voice-visualizer.friday-portfolio-status-thinking
+  span {
+  background: var(--friday-green);
+  animation: fridayPortfolioWave 0.8s ease-in-out infinite alternate;
+  animation-delay: calc(
+    var(--friday-bar-index) * -0.055s
+  );
+}
+
+.friday-portfolio-voice-visualizer.friday-portfolio-status-thinking
+  span {
+  animation-duration: 1.25s;
+  opacity: 0.7;
+}
+
+/* Transcript */
+
+.friday-portfolio-transcript {
+  min-height: 100px;
+  max-height: 210px;
+  margin: 0 16px;
+  padding: 13px;
+  border: 1px solid #303030;
+  border-radius: 13px;
+  background: rgba(17, 17, 17, 0.72);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #3b3b3b transparent;
+}
+
+.friday-portfolio-transcript-empty {
+  margin: 0;
+  color: #686868;
+  font-size: 0.7rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.friday-portfolio-transcript-line {
+  margin: 0 0 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.friday-portfolio-transcript-line:last-child {
+  margin-bottom: 0;
+}
+
+.friday-portfolio-transcript-line strong {
+  color: var(--friday-green);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.friday-portfolio-transcript-line span {
+  color: #9b9b9b;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.friday-portfolio-transcript-visitor {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.friday-portfolio-transcript-visitor strong {
+  color: #737373;
+}
+
+.friday-portfolio-error {
+  padding: 11px;
+  border: 1px solid rgba(239, 83, 80, 0.25);
+  border-radius: 10px;
+  background: rgba(239, 83, 80, 0.07);
+  color: #d98785;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+
+.friday-portfolio-panel-footer {
+  padding: 15px 16px 17px;
+}
+
+.friday-portfolio-panel-footer > p {
+  margin: 0 0 10px;
+  color: #5f5f5f;
+  font-size: 0.59rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.friday-portfolio-session-button {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid var(--friday-green);
+  border-radius: 11px;
+  background: var(--friday-green);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.friday-portfolio-session-button:hover {
+  background: #0d8c6d;
+}
+
+.friday-portfolio-session-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.friday-portfolio-session-stop {
+  border-color: #444444;
+  background: #242424;
+  color: #b3b3b3;
+}
+
+.friday-portfolio-session-stop:hover {
+  border-color: #cc5d59;
+  background: rgba(204, 93, 89, 0.08);
+  color: #e47b77;
+}
+
+/* Animations */
+
+@keyframes fridayPortfolioPanelOpen {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fridayPortfolioWave {
+  from {
+    height: 7px;
+  }
+
+  to {
+    height: 33px;
+  }
+}
+
+@keyframes fridayPortfolioGlow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fridayPortfolioListening {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 163, 127, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(16, 163, 127, 0.1);
+  }
+}
+
+@keyframes fridayPortfolioSpeaking {
+  from {
+    transform: scale(0.94);
+  }
+
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes fridayPortfolioOrbit {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .friday-portfolio-assistant {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .friday-portfolio-panel {
+    position: fixed;
+    right: 15px;
+    bottom: 87px;
+    left: 15px;
+    width: auto;
+    max-height: calc(100dvh - 110px);
+  }
+
+  .friday-portfolio-floating-button {
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    padding: 7px;
+  }
+
+  .friday-portfolio-floating-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .friday-portfolio-floating-copy {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) {
+  .friday-portfolio-status-area {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+
+  .friday-portfolio-transcript {
+    max-height: 125px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .friday-portfolio-panel,
+  .friday-portfolio-floating-button,
+  .friday-portfolio-floating-glow,
+  .friday-portfolio-floating-icon,
+  .friday-portfolio-mini-orb span,
+  .friday-portfolio-voice-visualizer span {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Floating chat control */
+
+.friday-portfolio-floating-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.friday-portfolio-chat-button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #373737;
+  border-radius: 50%;
+  background: rgba(24, 24, 24, 0.96);
+  color: #858585;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 15px 38px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(18px) scale(0.85);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.friday-portfolio-floating-controls:hover
+  .friday-portfolio-chat-button,
+.friday-portfolio-chat-button:focus-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+}
+
+.friday-portfolio-chat-button:hover {
+  border-color: var(--friday-green);
+  background: rgba(16, 163, 127, 0.1);
+  color: var(--friday-green);
+}
+
+.friday-portfolio-chat-button:focus-visible {
+  outline: 2px solid var(--friday-green);
+  outline-offset: 3px;
+}
+
+/* Text messages */
+
+.friday-portfolio-text-messages {
+  min-height: 260px;
+  max-height: 380px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.friday-portfolio-text-welcome {
+  min-height: 220px;
+  color: #686868;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.friday-portfolio-text-welcome > svg {
+  color: var(--friday-green);
+}
+
+.friday-portfolio-text-welcome strong {
+  color: #d5d5d5;
+  font-size: 0.82rem;
+}
+
+.friday-portfolio-text-welcome p {
+  max-width: 260px;
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.65;
+}
+
+.friday-portfolio-text-message {
+  max-width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.friday-portfolio-text-message > span {
+  color: #686868;
+  font-size: 0.59rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.friday-portfolio-text-message > p {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #303030;
+  border-radius: 12px;
+  background: #202020;
+  color: #a5a5a5;
+  font-size: 0.73rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.friday-portfolio-text-message-visitor {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.friday-portfolio-text-message-visitor > p {
+  border-color: rgba(16, 163, 127, 0.25);
+  background: rgba(16, 163, 127, 0.1);
+  color: #c0c0c0;
+  border-bottom-right-radius: 4px;
+}
+
+.friday-portfolio-text-message-friday {
+  align-self: flex-start;
+}
+
+.friday-portfolio-text-message-friday > p {
+  border-bottom-left-radius: 4px;
+}
+
+/* Typing animation */
+
+.friday-portfolio-text-typing {
+  width: fit-content;
+  padding: 10px 13px;
+  border: 1px solid #303030;
+  border-radius: 12px;
+  background: #202020;
+  display: flex;
+  gap: 4px;
+}
+
+.friday-portfolio-text-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--friday-green);
+  animation: fridayPortfolioTyping 0.8s infinite
+    alternate;
+}
+
+.friday-portfolio-text-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.friday-portfolio-text-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Text input */
+
+.friday-portfolio-text-form {
+  padding: 12px 14px 15px;
+  border-top: 1px solid #303030;
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+}
+
+.friday-portfolio-text-form textarea {
+  min-height: 42px;
+  max-height: 110px;
+  flex: 1;
+  padding: 11px 13px;
+  border: 1px solid #373737;
+  border-radius: 11px;
+  outline: none;
+  background: #191919;
+  color: #dedede;
+  font-family: inherit;
+  font-size: 0.73rem;
+  line-height: 1.5;
+  resize: none;
+}
+
+.friday-portfolio-text-form textarea:focus {
+  border-color: var(--friday-green);
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.09);
+}
+
+.friday-portfolio-text-form textarea::placeholder {
+  color: #5f5f5f;
+}
+
+.friday-portfolio-text-form > button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--friday-green);
+  border-radius: 11px;
+  background: var(--friday-green);
+  color: #ffffff;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.friday-portfolio-text-form > button:disabled {
+  border-color: #343434;
+  background: #282828;
+  color: #5e5e5e;
+  cursor: not-allowed;
+}
+
+@keyframes fridayPortfolioTyping {
+  from {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none), (max-width: 768px) {
+  .friday-portfolio-chat-button {
+    width: 45px;
+    height: 45px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
