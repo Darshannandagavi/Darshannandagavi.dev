@@ -70,7 +70,7 @@ export default function Languages() {
               tiltMaxAngleY={14}
               perspective={1000}
               scale={1.02}
-              transitionSpeed={0}
+              transitionSpeed={1000}
               glareEnable
               glareMaxOpacity={0.2}
               glareColor="#ffffff"
@@ -94,11 +94,7 @@ export default function Languages() {
                     <p>{language.level}</p>
                   </div>
 
-                  <FiMessageCircle
-                    className="portfolio-language-message-icon"
-                    size={17}
-                    aria-hidden="true"
-                  />
+                  
                 </header>
 
                 {/* Description with 3D effect */}
