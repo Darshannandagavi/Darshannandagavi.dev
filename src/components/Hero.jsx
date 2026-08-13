@@ -33,10 +33,10 @@ export default function Hero() {
             </div>
 
             <h1 id="hero-title" className="hero-heading">
-              <span className="hero-line hero-line-1">Hi, I&apos;m Darshan</span>
-              <span className="hero-line hero-line-2">
-                Ningappa Nandagavi
+              <span className="hero-line hero-line-1">
+                Hi, I&apos;m Darshan
               </span>
+              <span className="hero-line hero-line-2">Ningappa Nandagavi</span>
             </h1>
 
             <p className="hero-subtitle">
@@ -52,18 +52,19 @@ export default function Hero() {
           </header>
 
           <nav className="hero-actions" aria-label="Portfolio actions">
-            <button
-              type="button"
+            <a
+              href="/Darshan_Nandagavi_Resume_Final.pdf"
+              download="Darshan_Nandagavi_Resume_Final.pdf"
               className="hero-button hero-button-primary"
-              onClick={() => scrollToSection('contact')}
+              style={{textDecoration:"none"}}
             >
-              Get in touch
-            </button>
+              Download Resume
+            </a>
 
             <button
               type="button"
               className="hero-button hero-button-outline"
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
             >
               View my projects
             </button>
@@ -76,7 +77,7 @@ export default function Hero() {
               aria-label="Open Darshan's GitHub profile"
               title="GitHub"
               onClick={() =>
-                openExternalPage('https://github.com/Darshannandagavi')
+                openExternalPage("https://github.com/Darshannandagavi")
               }
             >
               <FiGithub size={17} aria-hidden="true" />
@@ -89,7 +90,7 @@ export default function Hero() {
               title="LinkedIn"
               onClick={() =>
                 openExternalPage(
-                  'https://www.linkedin.com/in/darshan-nandagavi'
+                  "https://www.linkedin.com/in/darshan-nandagavi",
                 )
               }
             >
@@ -102,8 +103,7 @@ export default function Hero() {
               aria-label="Send an email to Darshan"
               title="Email"
               onClick={() => {
-                window.location.href =
-                  'mailto:nandagavidarshan562@gmail.com'
+                window.location.href = "mailto:nandagavidarshan562@gmail.com";
               }}
             >
               <FiMail size={17} aria-hidden="true" />
@@ -131,11 +131,11 @@ export default function Hero() {
         type="button"
         className="scroll-indicator"
         aria-label="Scroll to the about section"
-        onClick={() => scrollToSection('about')}
+        onClick={() => scrollToSection("about")}
       >
         <span>Explore</span>
         <FiArrowDown size={18} aria-hidden="true" />
       </button>
     </section>
-  )
+  );
 }
