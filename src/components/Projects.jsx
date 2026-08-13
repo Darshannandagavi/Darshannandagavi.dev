@@ -90,7 +90,7 @@ const projectGroups = [
       {
         project: mernCraft, // Add this project
         path: "/projects/merncraft",
-        image: "/projects/merncraft/home.png",
+        image: "/projects/merncraft/heropage.png",
         imageAlt: "MernCraft MERN scaffolding CLI",
       },
       {
