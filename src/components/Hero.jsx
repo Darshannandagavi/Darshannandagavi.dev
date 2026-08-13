@@ -56,7 +56,7 @@ export default function Hero() {
               href="/Darshan_Nandagavi_Resume.pdf"
               download="Darshan_Nandagavi_Resume_Final.pdf"
               className="hero-button hero-button-primary"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration:"none" }}
             >
               Download Resume
             </a>
