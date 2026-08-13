@@ -11,6 +11,8 @@ import {
   fridayChromeExtension,
   fridayAIAssistant,
   mlDatasetCollector,
+  codeFusion,
+  mernCraft,
 } from "./Projects/projectData";
 import "../Styles/Projects.css";
 
@@ -41,30 +43,42 @@ const projectGroups = [
     description:
       "Full-stack, machine-learning, security, and academic applications built to solve practical problems.",
     projects: [
-      
+      {
+        project: codeFusion,
+        path: "/projects/codefusion",
+        image: "/projects/codefusion/home.png",
+        imageAlt: "CodeFusion collaborative coding platform",
+      },
       {
         project: morseSecurity,
         path: "/projects/morse-security",
+        image: "/projects/morse_security/home.png",
+        imageAlt: "Morse Security file sharing platform",
       },
       {
         project: quickFix,
         path: "/projects/quick-fix",
+        image: "/projects/quickfix/home.png",
+        imageAlt: "Quick Fix emergency vehicle support platform",
       },
-      
       {
         project: letMySpace,
         path: "/projects/letmyspace",
+        image: "/projects/letmyspace/Screenshot 2025-10-16 202427.png",
+        imageAlt: "LetMySpace real estate platform",
       },
       {
         project: potholeDetection,
         path: "/projects/pothole-detection",
+        image: "/projects/pathhole/home.png",
+        imageAlt: "Pothole Detection system",
       },
       {
         project: cyberAttackPredictor,
         path: "/projects/cyber-attack-predictor",
+        image: "/projects/cyberAttackPredictor/main.png",
+        imageAlt: "Cyber Attack Predictor security platform",
       },
-      
-      
     ],
   },
   {
@@ -74,16 +88,28 @@ const projectGroups = [
       "Personal AI products, browser experiences, and developer tools created through independent exploration.",
     projects: [
       {
+        project: mernCraft, // Add this project
+        path: "/projects/merncraft",
+        image: "/projects/merncraft/home.png",
+        imageAlt: "MernCraft MERN scaffolding CLI",
+      },
+      {
         project: fridayAIAssistant,
         path: "/projects/friday-ai-assistant",
+        image: "/projects/friday/home.png",
+        imageAlt: "Friday AI Assistant",
       },
       {
         project: fridayChromeExtension,
         path: "/projects/friday-chrome-extension",
+        image: "/projects/friday_extension/home.png",
+        imageAlt: "Friday AI Chrome Extension",
       },
       {
         project: mlDatasetCollector,
         path: "/projects/ml-dataset-collector",
+        image: "/projects/DatasetCollector/home.png",
+        imageAlt: "ML Dataset Collector",
       },
     ],
   },

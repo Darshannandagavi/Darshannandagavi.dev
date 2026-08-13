@@ -24,11 +24,13 @@ import LetMySpace from './components/Projects/LetMySpace'
 import FridayAIAssistant from './components/Projects/FridayAIAssistant'
 import FridayChromeExtension from './components/Projects/FridayChromeExtension'
 import MLDatasetCollector from './components/Projects/MLDatasetCollector'
+import CodeFusion from "./components/Projects/CodeFusion";
 
 import './App.css'
 import Certifications from './components/Certifications'
 import Achievements from './components/Achievements'
 import FridayPortfolioAssistant from './components/FridayPortfolioAssistant'
+import MernCraft from './components/Projects/MernCraft'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -289,63 +291,42 @@ function PortfolioHome() {
 export default function App() {
   return (
     <>
-    <Routes>
-      <Route path="/" element={<PortfolioHome />} />
+      <Routes>
+        <Route path="/" element={<PortfolioHome />} />
+        <Route
+          path="/projects/ligand-workspace"
+          element={<LigandWorkspace />}
+        />
+        <Route path="/projects/ekalavya" element={<Ekalavya />} />
+        <Route
+          path="/projects/cyber-attack-predictor"
+          element={<CyberAttackPredictor />}
+        />
+        <Route path="/projects/morse-security" element={<MorseSecurity />} />
+        <Route
+          path="/projects/pothole-detection"
+          element={<PotholeDetection />}
+        />
+        <Route path="/projects/quick-fix" element={<QuickFix />} />
+        <Route path="/projects/letmyspace" element={<LetMySpace />} />
 
-      <Route
-        path="/projects/ligand-workspace"
-        element={<LigandWorkspace />}
-      />
-
-      <Route
-        path="/projects/ekalavya"
-        element={<Ekalavya />}
-      />
-
-      <Route
-        path="/projects/cyber-attack-predictor"
-        element={<CyberAttackPredictor />}
-      />
-
-      <Route
-        path="/projects/morse-security"
-        element={<MorseSecurity />}
-      />
-
-      <Route
-        path="/projects/pothole-detection"
-        element={<PotholeDetection />}
-      />
-
-      <Route
-        path="/projects/quick-fix"
-        element={<QuickFix />}
-      />
-
-      <Route
-        path="/projects/letmyspace"
-        element={<LetMySpace />}
-      />
-
-      <Route
-        path="/projects/friday-ai-assistant"
-        element={<FridayAIAssistant />}
-      />
-
-      <Route
-        path="/projects/friday-chrome-extension"
-        element={<FridayChromeExtension />}
-      />
-
-      <Route
-        path="/projects/ml-dataset-collector"
-        element={<MLDatasetCollector />}
-      />
-
-      <Route path="*" element={<Navigate to="/" replace />} />
-      
-    </Routes>
-    <FridayPortfolioAssistant />
+        <Route path="/projects/codefusion" element={<CodeFusion />} />
+        <Route
+          path="/projects/friday-ai-assistant"
+          element={<FridayAIAssistant />}
+        />
+        <Route path="/projects/merncraft" element={<MernCraft />} />
+        <Route
+          path="/projects/friday-chrome-extension"
+          element={<FridayChromeExtension />}
+        />
+        <Route
+          path="/projects/ml-dataset-collector"
+          element={<MLDatasetCollector />}
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      <FridayPortfolioAssistant />
     </>
-  )
+  );
 }
