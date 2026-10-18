@@ -1,4 +1,4 @@
-   User-agent: *
-   Allow: /
+User-agent: *
+Allow: /
 
-   Sitemap: https://darshannandagavi.netlify.app/sitemap.xml
+Sitemap: https://darshannandagavi.netlify.app/sitemap.xml
